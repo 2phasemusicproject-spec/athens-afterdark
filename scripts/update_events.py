@@ -41,6 +41,13 @@ for keyword in ('techno','house','electronic','trance','drum and bass','rave','D
             event={'id':'tm-'+str(item.get('id','')),'name':item.get('name',''),'date':date,'venue':venue.get('name','Athens'),'genre':genre,'artist':'','url':link,'source':'Ticketmaster'}
             if event['id']!='tm-' and event['name']:results[event['id']]=event
         if len(batch)<100:break
+            from event_ai import filter_events
+
+for event in results.values():
+    event["city"] = "Athens"
+    event["country"] = "GR"
+
+results = {e["id"]: e for e in filter_events(results.values())}
 output={'status':'configured','source':'Ticketmaster Discovery API','updatedAt':now.isoformat().replace('+00:00','Z'),'events':sorted(results.values(),key=lambda e:e['date'])}
 (ROOT/'events.json').write_text(json.dumps(output,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 print(f'Wrote {len(results)} listings to events.json')
