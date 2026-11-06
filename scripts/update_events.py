@@ -11,7 +11,7 @@ start=now.strftime('%Y-%m-%dT%H:%M:%SZ')
 end=(now+datetime.timedelta(days=90)).strftime('%Y-%m-%dT%H:%M:%SZ')
 results={}
 # Multiple queries to cover genre/artist descriptions; API coverage varies by market.
-for keyword in ('techno','house music','electronic music','trance','drum and bass'):
+for keyword in ('techno','house','electronic','trance','drum and bass','rave','DJ','dance music'):
     for page in range(2):
         params={'apikey':KEY,'city':'Athens','countryCode':'GR','keyword':keyword,'startDateTime':start,'endDateTime':end,'size':100,'page':page,'sort':'date,asc'}
         req=urllib.request.Request(API+'?'+urllib.parse.urlencode(params),headers={'User-Agent':'AthensAfterdark/2.0'})
