@@ -24,7 +24,7 @@ jobs:
       - name: Fetch events
         env:
           TICKETMASTER_API_KEY: ${{ secrets.TICKETMASTER_API_KEY }}
-        run: python scripts/fetch_events.py
+        run: python scripts/update_events.py
 
       - name: Save updated events
         run: |
