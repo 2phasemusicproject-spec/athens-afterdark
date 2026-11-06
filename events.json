@@ -1,1 +1,6 @@
-{"status":"not_configured","source":"Ticketmaster Discovery API","updatedAt":null,"events":[]}
+{
+  "status": "configured",
+  "source": "Ticketmaster Discovery API",
+  "updatedAt": "2026-11-06T10:16:15.103254Z",
+  "events": []
+}
