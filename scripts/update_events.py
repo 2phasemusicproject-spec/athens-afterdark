@@ -9,6 +9,7 @@ API='https://app.ticketmaster.com/discovery/v2/events.json'
 now=datetime.datetime.now(datetime.timezone.utc)
 start=now.strftime('%Y-%m-%dT%H:%M:%SZ')
 end=(now+datetime.timedelta(days=90)).strftime('%Y-%m-%dT%H:%M:%SZ')
+print(f"Before AI filter: {len(results)} events")
 results={}
 # Multiple queries to cover genre/artist descriptions; API coverage varies by market.
 for keyword in ('techno','house','electronic','trance','drum and bass','rave','DJ','dance music'):
